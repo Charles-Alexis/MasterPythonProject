@@ -1,9 +1,0 @@
-Confort Coefficient: 0.1
-Override Coefficient: 0.1
-Security Coefficient: 100
-{'AsphalteDry': [1.2801, 23.99, 0.52, 0.02, 'AsphalteDry'], 'CementDry': [1.1973, 25.168, 0.5373, 0.02, 'CementDry'], 'AsphalteWet': [0.857, 33.822, 0.347, 0.02, 'AsphalteWet'], 'CobblestoneWet': [0.4, 33.71, 0.12, 0.02, 'CobblestoneWet'], 'Snow': [0.1946, 94.129, 0.0646, 0.02, 'Snow'], 'Ice': [0.05, 306.39, 0, 0.02, 'Ice']}
-{'Bad': [7.0, 10.0, 'Bad'], 'Ok': [5.5, 8.5, 'Ok'], 'Good': [4.0, 7.0, 'Good']}
-pos_dim: 301
-vit_dim: 501
-slip: 15
-dt: 0.03

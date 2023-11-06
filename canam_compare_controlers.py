@@ -33,7 +33,7 @@ controler = ['Vi','Ttc','Msd', 'Human']
 
 ## SCÉNARIO
 roads_to_test = [2]  
-drivers_to_test = [0,1,2,3,4]
+drivers_to_test = [4]
 coef_name = ['Confort','Override','Security' ]
 coef_to_test = [[1, 10, 100]]
 controlers_to_test = [0,1,2,3]
@@ -188,7 +188,7 @@ for coef in coef_to_test:
                 if controler[controlers_to_test[c]] == 'Vi':
                     sys.cost_function = cf
                     dp = dprog.DynamicProgrammingWithLookUpTable(grid_sys, cf, esperance = sys.driver[0], cf_flag = False)
-                    dp.compute_steps(10000,  treshhold=0.00001, animate_policy=False, animate_cost2go=False, jmax = 1000)
+                    dp.compute_steps(1000,  treshhold=0.00001, animate_policy=False, animate_cost2go=False, jmax = 1000)
                     vi_controller = dprog.LookUpTableController( grid_sys , dp.pi )
                     vi_controller.k = 2
                     cl_sys_vi = controller.ClosedLoopSystem( sys , vi_controller ) 
