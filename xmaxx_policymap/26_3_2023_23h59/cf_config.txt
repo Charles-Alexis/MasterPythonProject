@@ -1,0 +1,4 @@
+Confort Coefficient: 5
+Override Coefficient: 2000
+Security Coefficient: 5
+{'AsphalteDry': [1.2801, 23.99, 0.52, 0.02, 'AsphalteDry'], 'AsphalteWet': [0.857, 33.822, 0.347, 0.02, 'AsphalteWet'], 'CobblestoneWet': [0.4, 33.71, 0.12, 0.02, 'CobblestoneWet'], 'Snow': [0.1946, 94.129, 0.0646, 0.02, 'Snow'], 'Ice': [0.05, 306.39, 0, 0.02, 'Ice']}

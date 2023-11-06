@@ -1,0 +1,9 @@
+Confort Coefficient: 5
+Override Coefficient: 2000
+Security Coefficient: 5
+{'AsphalteDry': [1.2801, 23.99, 0.52, 0.02, 'AsphalteDry'], 'AsphalteWet': [0.857, 33.822, 0.347, 0.02, 'AsphalteWet'], 'CobblestoneWet': [0.4, 33.71, 0.12, 0.02, 'CobblestoneWet'], 'Snow': [0.1946, 94.129, 0.0646, 0.02, 'Snow'], 'Ice': [0.05, 306.39, 0, 0.02, 'Ice']}
+pos_dim: 550
+vit_dim: 150
+slip: 10
+dt: 0.02
+time margin: [2.2, 2.5, 2.8, 3.8, 4.2]time margin dot: 0.1E_mauvais: [[-0.2, 0.1], [0.0, 0.3], [0.2, 0.59], [10.0, 0.01]]E_normal: [[-0.2, 0.33], [0.0, 0.33], [0.2, 0.33], [10.0, 0.01]]E_bon: [[-0.2, 0.3], [0.0, 0.59], [0.2, 0.1], [10.0, 0.01]]E_sleep: [[-0.2, 0.01], [0.0, 0.01], [0.2, 0.01], [10.0, 0.97]]E_null: [[0.0, 1.0]]
