@@ -1,0 +1,37 @@
+<launch>
+<!--sudo route add 192.168.1.201 eth0-->
+<!--sudo service firewalld stop-->
+
+  #############################
+  #          CONTROL          #
+  #############################
+  
+### SLAM ###
+  <include file="$(find rtabmap_ros)/launch/tests/test_velodyne_oli.launch"/>
+
+### IMU ###
+  <include file="$(find xsens_mti_driver)/launch/xsens_mti_node.launch" />
+
+### CONTROLLER ###
+  <node pkg="research_racecar" type="master_racecar_new.py" name="CONTROLLER" output="screen" />
+
+### ARDUINO ###
+  <node pkg="rosserial_python" type="serial_node.py" name="arduino" >
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="115200"/>
+  </node>
+
+### JOY ###
+  <node pkg="joy" type="joy_node" name="joy" >
+    <param name="deadzone" value="0.0" />
+  </node>
+  <node pkg="research_racecar" type="tf_broadcaster.py" name="TF_BROADCASTER" output="screen">
+  </node>
+
+  <node pkg="research_racecar" type="slipslope_V3.py" name="SLIP_SLOPE" output="screen">
+  </node> 
+
+  <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -O /home/nvidia/bags_Xmaxx/test_onroad_frnt_wheel_on_road.bag /prop_sensors /prop_cmd_costum /mu_est /scan /joy /imu/acceleration"/> 
+ 
+</launch>

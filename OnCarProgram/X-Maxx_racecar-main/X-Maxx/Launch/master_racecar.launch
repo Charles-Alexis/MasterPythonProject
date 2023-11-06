@@ -1,0 +1,46 @@
+<launch>
+
+<!--sudo route add 192.168.1.201 eth0-->
+<!--sudo service firewalld stop-->
+
+  #############################
+  #     SLAM USING LIDAR      #
+  #############################
+  
+  <include file="$(find rtabmap_ros)/launch/tests/test_velodyne.launch"/>
+
+  #############################
+  #          CONTROL          #
+  #############################
+
+
+  <node pkg="research_racecar" type="master_racecar.py" name="CONTROLLER" output="screen" />
+
+  <node pkg="rosserial_python" type="serial_node.py" name="arduino" >
+    <param name="port" value="/dev/ttyACM0"/>
+    <param name="baud" value="115200"/>
+  </node>
+
+  <node pkg="joy" type="joy_node" name="joy" >
+    <param name="deadzone" value="0.0" />
+  </node>
+
+  <node pkg="research_racecar" type="tf_broadcaster.py" name="TF_BROADCASTER" output="screen">
+  </node>
+  
+  
+  ############################
+  #        SLIP-SLOPE        #
+  ############################
+  
+  <include file="$(find xsens_mti_driver)/launch/xsens_mti_node.launch" />
+  
+  <node pkg="research_racecar" type="slipslope_V3.py" name="SLIP_SLOPE" output="screen">
+  </node>   
+  
+  
+  <node pkg="rosbag" type="record" name="rosbag_record"
+       args="record -O /home/nvidia/bags_Xmaxx/test_onroad_frnt_wheel.bag /prop_sensors /prop_cmd /mu_est /scan /joy /imu/acceleration"/>  
+  
+       
+</launch>
